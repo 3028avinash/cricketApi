@@ -2,7 +2,6 @@ databases:
   - name: cricket_deepak
     databaseName: cricket_deepak
     user: cricket_deepak_user
-
 services:
   - type: web
     name: CricketApiDeepak
