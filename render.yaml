@@ -1,18 +1,18 @@
 databases:
-  - name: mysite
-    databaseName: mysite
-    user: mysite
+  - name: cricket_deepak
+    databaseName: cricket_deepak
+    user: cricket_deepak_user
 
 services:
   - type: web
-    name: mysite
+    name: CricketApiDeepak
     env: ruby
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: mysite
+          name: cricket_deepak
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
