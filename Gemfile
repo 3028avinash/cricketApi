@@ -81,4 +81,4 @@ gem "chartkick", "~> 5.0"
 
 gem "groupdate", "~> 6.2"
 
-gem "rackup", "~> 1.0"
+# gem "rackup", "~> 1.0"
