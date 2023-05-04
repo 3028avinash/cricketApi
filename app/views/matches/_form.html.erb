@@ -1,0 +1,80 @@
+<%= form_with(model: match) do |form| %>
+  <% if match.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(match.errors.count, "error") %> prohibited this match from being saved:</h2>
+
+      <ul>
+        <% match.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+
+  <div>
+    <%= form.label :frontTeam , style: "display: block"%>
+    <%= form.collection_select(:frontTeam,Team.all,:teamName,:teamName,{:include_blank => false},{class: "dropdown" })%>
+  </div>
+  
+  <div>
+    <%= form.label :oppTeam, style: "display: block" %>
+    <%= form.collection_select(:oppTeam, Team.where.not(teamName: ""),:teamName,:teamName) %>
+    <%#= form.text_field :teamB %>
+  </div> 
+
+
+
+  
+
+  <div>
+    <%= form.label :views, style: "display: block" %>
+    <%= form.text_field :views %>
+  </div>
+
+  <div class="field">
+    <%= form.label :matchStatus %><br />
+    <%= form.label :matchStatus, "Live", value: "live"  %>
+    <%= form.radio_button :matchStatus, "live" %>
+    <%= form.label :matchStatus, "Upcoming", value: "upcoming"  %>
+    <%= form.radio_button :matchStatus, "upcoming" %>
+    <%= form.label :matchStatus, "Completed", value: "completed" %>
+    <%= form.radio_button :matchStatus, "completed"%>
+  </div>
+
+  <%
+=begin%>
+ <div>
+    <%= form.label :matchStatus, style: "display: block" %>
+    <%= form.text_field :matchStatus %>
+  </div> 
+<%
+=end%>
+
+  <%
+=begin%>
+ <div>
+    <%= form.label :title , style: "display: block" %>
+    <%= form.text_field :title %>
+  </div> 
+<%
+=end%>
+
+
+  <%
+=begin%>
+ <div>
+    <%= form.label :shortTitle , style: "display: block" %>
+    <%= form.text_field :shortTitle %>
+  </div> 
+<%
+=end%>
+
+   
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

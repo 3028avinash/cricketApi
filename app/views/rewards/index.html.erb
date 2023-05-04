@@ -1,0 +1,28 @@
+<p style="color: green"><%= notice %></p>
+
+<h1 style="text-align: center; border: 1px solid grey">Rewards</h1>
+<%= link_to "New reward", new_reward_path, class:"btn btn-outline-danger btn-block form-control" %>
+
+<table class="table table-dark table-striped table-hover mb-10">  
+<thead>
+  <tr>                        
+    <th>Name</th>
+    <th>Logo</th>
+    <th>Amount</th>
+    <th>Show</th>
+
+  </tr>
+</thead>
+
+<div id="rewards">
+  <% @rewards.each do |reward| %>
+<tr class="table-info">
+
+    <%= render reward %>
+    <p>
+      <td><%= link_to "Show this reward", reward, class:"btn btn-outline-warning" %></td>
+    </p>
+      </tr>
+  <% end %>
+</div>
+

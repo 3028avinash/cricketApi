@@ -1,0 +1,28 @@
+<p style="color: green"><%= notice %></p>
+
+<h1 style="text-align: center; border: 1px solid grey">Teams</h1>
+<%= link_to "New team", new_team_path, class:"btn btn-outline-danger btn-block form-control" %>
+
+
+<table class="table table-dark table-striped table-hover mb-10">  
+<thead>
+  <tr>                        
+    <th>Team-Name</th>
+    <th>Team-Code</th>
+    <th>Logo</th>
+    <th>Show</th>
+    <th>Player</th>
+  </tr>
+</thead>
+
+<div id="teams">
+  <% @teams.each do |team| %>
+  <tr class="table-info">
+    <%= render team %>
+      <td><%= link_to "Show Details", team,class:"btn btn-outline-success" %></td>
+      <td><%= link_to "Show Players", players_path(category: team.id),class:"btn btn-outline-danger" %></td>
+    </tr>
+  <% end %>
+</div>
+
+

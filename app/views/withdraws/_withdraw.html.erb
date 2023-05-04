@@ -1,0 +1,34 @@
+<%
+=begin%>
+ <div id="<%= dom_id withdraw %>">
+<p style="color: green"><%= notice %></p>
+
+  <p>
+    <strong>Account:</strong>
+    <%= withdraw.account_id %>
+  </p>
+
+  <p>
+    <strong>Coin:</strong>
+    <%= withdraw.coin %>
+  </p>
+
+  <p>
+    <strong>Txn in:</strong>
+    <%= withdraw.txn_id %>
+  </p>
+
+  <p>
+    <strong>Coin amount:</strong>
+    <%= withdraw.coin_amount %>
+  </p>
+
+</div> 
+<%
+=end%>
+
+    <td><%= withdraw.account_id %></td> 
+    <td><%= withdraw.reward_id %></td> 
+    <td><%=withdraw.coin %></td> 
+    <td><%=withdraw.txn_id %></td> 
+    <td><%= withdraw.coin_amount %></td> 

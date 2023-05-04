@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>App opens</h1>
+
+<div id="app_opens">
+  <% @app_opens.each do |app_open| %>
+    <%= render app_open %>
+    <p>
+      <%= link_to "Show this app open", app_open %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New app open", new_app_open_path %>

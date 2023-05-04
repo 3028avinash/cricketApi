@@ -1,0 +1,52 @@
+
+    <td><%= match.title %></td> 
+    <td><%= match.shortTitle %></td> 
+    <td><%= match.matchStatus %></td> 
+    <td><%= match.views %></td> 
+    <td><%= match.frontTeam %></td> 
+    <td><%= match.oppTeam%></td> 
+
+
+
+
+
+  <%
+=begin%>
+ <tr>
+ <p>
+    <strong></strong>
+    <%= match.title %>
+  </p>
+  
+ <p>
+    <strong></strong>
+    <%= match.shortTitle %>
+  </p> 
+
+
+  <p>
+    <strong></strong>
+    <%= match.views %>
+  </p>
+
+  <p>
+    Matchstatus:
+    <strong><%= match.matchStatus %></strong>
+  </p>
+
+  <p>
+    <strong>frontTeam:</strong>
+    <%=link_to match.frontTeam  %>
+  </p>
+
+  <p>
+    <strong>oppTeam:</strong>
+    <%=link_to match.oppTeam %>
+  </p>
+
+  </tr>
+   
+<%
+=end%>
+
+</div>

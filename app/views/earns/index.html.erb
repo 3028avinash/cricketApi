@@ -1,0 +1,27 @@
+<p style="color: green"><%= notice %></p>
+
+<h1 style="text-align: center; border: 1px solid grey">Earns</h1>
+<%= link_to "New earn", new_earn_path, class:"btn btn-outline-danger btn-block form-control"  %>
+
+<table class="table table-dark table-striped table-hover mb-10">  
+<thead>
+  <tr>                        
+    <th>Account</th>
+    <th>Logo</th>
+    <th>Coin</th>
+    <th>Show</th>
+  </tr>
+</thead>
+
+<div id="earns">
+  <% @earns.each do |earn| %>
+    <tr class="table-info">
+
+    <%= render earn %>
+    <p>
+      <td><%= link_to "Show this earn", earn, class:"btn btn-outline-warning" %></td>
+    </p>
+    </tr>
+  <% end %>
+</div>
+

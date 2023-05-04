@@ -1,0 +1,102 @@
+<%= form_with(model: user) do |form| %>
+  <% if user.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :deviceId, style: "display: block" %>
+    <%= form.text_field :deviceId %>
+  </div>
+
+  <div>
+    <%= form.label :deviceType, style: "display: block" %>
+    <%= form.text_field :deviceType %>
+  </div>
+
+  <div>
+    <%= form.label :deviceName, style: "display: block" %>
+    <%= form.text_field :deviceName %>
+  </div>
+
+  <div>
+    <%= form.label :socialType, style: "display: block" %>
+    <%= form.text_field :socialType %>
+  </div>
+
+  <div>
+    <%= form.label :socialId, style: "display: block" %>
+    <%= form.text_field :socialId %>
+  </div>
+
+  <div>
+    <%= form.label :socialToken, style: "display: block" %>
+    <%= form.text_field :socialToken %>
+  </div>
+
+  <div>
+    <%= form.label :socialEmail, style: "display: block" %>
+    <%= form.text_field :socialEmail %>
+  </div>
+
+  <div>
+    <%= form.label :socialName, style: "display: block" %>
+    <%= form.text_field :socialName %>
+  </div>
+
+  <div>
+    <%= form.label :socialmgUrl, style: "display: block" %>
+    <%= form.text_field :socialmgUrl %>
+  </div>
+
+  <div>
+    <%= form.label :advertisingId, style: "display: block" %>
+    <%= form.text_field :advertisingId %>
+  </div>
+
+  <div>
+    <%= form.label :versionName, style: "display: block" %>
+    <%= form.text_field :versionName %>
+  </div>
+
+  <div>
+    <%= form.label :versionCode, style: "display: block" %>
+    <%= form.text_field :versionCode %>
+  </div>
+
+  <div>
+    <%= form.label :utmSource, style: "display: block" %>
+    <%= form.text_field :utmSource %>
+  </div>
+
+  <div>
+    <%= form.label :utmMedium, style: "display: block" %>
+    <%= form.text_field :utmMedium %>
+  </div>
+
+  <div>
+    <%= form.label :utmTerm, style: "display: block" %>
+    <%= form.text_field :utmTerm %>
+  </div>
+
+  <div>
+    <%= form.label :utmContent, style: "display: block" %>
+    <%= form.text_field :utmContent %>
+  </div>
+
+  <div>
+    <%= form.label :utmCampaign, style: "display: block" %>
+    <%= form.text_field :utmCampaign %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

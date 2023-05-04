@@ -1,0 +1,2 @@
+class PlayEarn < ApplicationRecord
+end

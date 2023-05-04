@@ -1,0 +1,43 @@
+<%
+=begin%>
+ <div id="<%= dom_id task_offer %>">
+  <p>
+    <strong>Title:</strong>
+    <%=  %>
+  </p>
+
+  <p>
+    <strong>Titleimg:</strong>
+    <%= task_offer.titleImg %>
+  </p>
+
+  <p>
+    <strong>Task:</strong>
+    <%= task_offer.tasks %>
+  </p>
+
+  <p>
+    <strong>Point:</strong>
+    <%= task_offer.point %>
+  </p>
+
+  <p>
+    <strong>Reward:</strong>
+    <%= task_offer.reward %>
+  </p>
+
+</div> 
+<%
+=end%>
+
+
+      <td><%= task_offer.title%></td>
+      <td><img src="<%= task_offer.titleImg %>" style="width:30px"></td>
+      <td><%= task_offer.tasks%></td>
+      <td><%= task_offer.point%></td>
+      <td><%= task_offer.reward%></td>
+      <td><%= if task_offer.termsCondition.present? then task_offer.termsCondition.truncate(30) end%></td>
+      <td><%= if task_offer.steps.present? then task_offer.steps.truncate(30) end%></td>
+      <td><%= if task_offer.link.present? then task_offer.link.truncate(30) end%></td> 
+
+

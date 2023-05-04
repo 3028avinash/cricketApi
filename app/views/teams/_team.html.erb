@@ -1,0 +1,28 @@
+<%
+=begin%>
+ <div id="<%= dom_id team %>">
+  <p>
+    <strong>Team Name:</strong>
+    <%= team.teamName %>
+  </p>
+
+  <p>
+    <strong>Team Code:</strong>
+    <%= team.teamCode %>
+  </p>
+ 
+  <p>
+    <strong>Team Logo:</strong>
+    <%= team.teamLogo %>
+  </p>
+ 
+<%
+</div>
+=end%>
+    <td><%= team.teamName %></td> 
+    <td><%= team.teamCode %></td> 
+    <td><img src="<%= team.teamLogo %>" style="width:35px; height:40px"></td>
+
+
+
+

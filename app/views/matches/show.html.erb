@@ -1,0 +1,28 @@
+<p style="color: green"><%= notice %></p>
+<h1 style="text-align: center; border: 1px solid red"><%=@match.title%></h1>
+<table class="table table-dark table-striped table-hover m-1">  
+<thead>
+  <tr>                        
+    <th>Title</th>
+    <th>Short-Title</th>
+    <th>Match-Status</th>
+    <th>Views</th>
+    <th>Front-Team</th>
+    <th>Opp-Team</th>
+    <th>Edit</th>
+    
+  </tr>
+</thead>
+
+<tr><%= render @match %>
+  
+
+
+
+  <td><%= link_to "Edit this match", edit_match_path(@match),class:"btn btn-outline-success" %>
+  <td><%#= link_to "Back to matches", matches_path,class:"btn btn-outline-success" %>
+  </tr>
+  </table>
+
+  <%#= button_to "Destroy this match", @match, method: :delete, data:{turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
+

@@ -1,0 +1,24 @@
+<%
+=begin%>
+ <div id="<%= dom_id play_earn %>">
+  <p>
+    <strong>Title:</strong>
+    <%= play_earn.title %>
+  </p>
+
+  <p>
+    <strong>Blogimage:</strong>
+    <%= play_earn.blogImage %>
+  </p>
+
+  <p>
+    <strong>Blogurl:</strong>
+    <%= play_earn.blogUrl %>
+  </p>
+
+</div> 
+<%
+=end%>
+<td><%=play_earn.title.truncate(27)%></td>
+<td><img src="<%= play_earn.blogImage %>" style="width:50px"></td>
+<td><%= link_to play_earn.blogUrl.truncate(27)%></td>

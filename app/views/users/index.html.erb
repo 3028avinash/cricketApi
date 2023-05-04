@@ -1,0 +1,50 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Users</h1>
+
+<%= link_to "New user", new_user_path, class:"btn btn-outline-danger btn-block form-control"  %>
+
+<table class="table table-dark table-striped table-hover mb-10">  
+<thead>
+  <tr>                        
+    <th>deviceId</th>
+    <th>deviceType</th>
+    <th>deviceName</th>
+    <th>socialType</th>
+    <th>socialId</th>
+    <th>socialToken</th>
+    <th>socialEmail</th>
+    <th>socialName</th>
+    <th>socialmgUrl</th>
+    <th>advertisingId</th>
+    <th>versionName</th>
+    <th>versionCode</th>
+    <th>utmSource</th>
+    <th>utmMedium</th>
+    <th>utmTerm</th>
+    <th>utmContent</th>
+    <th>utmCampaign</th>
+    <th>Show</th>
+  </tr>
+</thead>
+
+
+
+
+<div id="users">
+
+
+
+
+  <% @users.each do |user| %>
+  <tr class="table-info">
+    <%= render user %>
+    <p>
+      <td><%= link_to "Show this user", user,class:"btn btn-outline-warning"  %></td>
+    </p>
+    </tr>
+  <% end %>
+</div>
+
+
+

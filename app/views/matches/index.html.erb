@@ -1,0 +1,27 @@
+<p style="color: green"><%= notice %></p>
+
+<h1 style="text-align: center; border: 1px solid red">Matches</h1>
+
+<div>
+<%= link_to "New match", new_match_path, class:"btn btn-primary btn-lg btn-block form-control" %>
+<table class="table table-dark table-striped table-hover m-1">  
+<thead>
+  <tr>                        
+    <th>Title</th>
+    <th>Short-Title</th>
+    <th>Match-Status</th>
+    <th>Views</th>
+    <th>Front-Team</th>
+    <th>Opp-Team</th>
+    <th>Show</th>
+  </tr>
+</thead>
+  <% @matches.each do |match| %>
+  <tr class="table-info">
+    <%= render match %>
+      <td><%= link_to "Show This Match", match, class:"btn btn-outline-success"%></td>
+  </tr>
+  <% end %>
+</table>
+</div>
+

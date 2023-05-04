@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  team: one
+  teamA: MyString
+  teamB: MyString
+  views: MyString
+  matchStatus: MyString
+  title: MyString
+
+two:
+  team: two
+  teamA: MyString
+  teamB: MyString
+  views: MyString
+  matchStatus: MyString
+  title: MyString

@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @fantasy %>
+
+<div>
+  <%= link_to "Edit this fantasy", edit_fantasy_path(@fantasy) %> |
+  <%= link_to "Back to fantasies", fantasies_path %>
+
+  <%= button_to "Destroy this fantasy", @fantasy, method: :delete %>
+</div>

@@ -1,0 +1,37 @@
+<%= form_with(model: withdraw) do |form| %>
+  <% if withdraw.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(withdraw.errors.count, "error") %> prohibited this withdraw from being saved:</h2>
+
+      <ul>
+        <% withdraw.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :account_id, style: "display: block" %>
+    <%= form.number_field :account_id %>
+  </div>
+
+  <div>
+    <%= form.label :coin, style: "display: block" %>
+    <%= form.text_field :coin %>
+  </div>
+
+  <div>
+    <%= form.label :txn_id, style: "display: block" %>
+    <%= form.text_field :txn_id %>
+  </div>
+
+  <div>
+    <%= form.label :coin_amount, style: "display: block" %>
+    <%= form.text_field :coin_amount %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

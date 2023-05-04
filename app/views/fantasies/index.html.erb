@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Fantasies</h1>
+
+<div id="fantasies">
+  <% @fantasies.each do |fantasy| %>
+    <%= render fantasy %>
+    <p>
+      <%= link_to "Show this fantasy", fantasy %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New fantasy", new_fantasy_path %>

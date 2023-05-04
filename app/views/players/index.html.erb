@@ -1,0 +1,27 @@
+<p style="color: green"><%= notice %></p>
+
+<h1 style="text-align: center; border: 1px solid grey">Players</h1>
+<%= link_to "New player", new_player_path, class:"btn btn-outline-danger btn-block form-control" %>
+
+
+
+
+<table class="table table-dark table-striped table-hover mb-10">  
+<thead>
+  <tr>                        
+    <th>Name</th>
+    <th>Score</th>
+    <th>Roles</th>
+    <th>Show</th>
+  </tr>
+</thead>
+<div id="players">
+  <% @players.each do |player| %>
+  <tr class="table-info">
+    <%= render player %>
+    <p>
+      <td><%= link_to "Show this player", player,class:"btn btn-outline-warning" %></td>
+    </p>
+    </tr>
+  <% end %>
+</div>

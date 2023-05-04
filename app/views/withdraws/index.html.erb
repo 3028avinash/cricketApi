@@ -1,0 +1,31 @@
+<p style="color: green"><%= notice %></p>
+
+<h1 style="text-align: center; border: 1px solid grey">Withdraws</h1>
+
+<%= link_to "New withdraw", new_withdraw_path, class:"btn btn-outline-danger btn-block form-control"  %>
+
+
+<table class="table table-dark table-striped table-hover mb-10">  
+<thead>
+  <tr>
+    <th>Account</th>
+    <th>Reward</th>
+    <th>Coin</th>
+    <th>Txn_id</th>
+    <th>Coin_amt</th>
+    <th>Show</th>
+  </tr>
+</thead>
+<div id="withdraws">
+  <% @withdraws.each do |withdraw| %>
+    <tr class="table-info">
+    <%= render withdraw %>
+    <p>
+      <td><%= link_to "Show this withdraw", withdraw, class:"btn btn-outline-warning" %></td>
+    </p>
+     </tr>
+  <% end %>
+</div>
+
+<%#= line_chart Withdraw.group_by_day(:created_at)%>
+
