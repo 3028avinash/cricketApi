@@ -82,3 +82,7 @@ gem "chartkick", "~> 5.0"
 gem "groupdate", "~> 6.2"
 
 # gem "rackup", "~> 1.0"
+
+gem "dockerfile-rails", ">= 1.2", :group => :development
+
+gem "redis", "~> 5.0"

@@ -469,12 +469,10 @@ module Cricket
           post do
             begin
               @user = User.find(params[:userId])
-              if @user.present?           
+              if @user.present?
                 refer_code = Account.find_by(user_id: @user.id).refer_code
                 fburl= "https://www.facebook.com"
                 img_url = "https://media.istockphoto.com/id/1197835442/vector/male-hand-holding-megaphone-with-refer-a-friend-speech-bubble-loudspeaker-banner-for.jpg?s=612x612&w=0&k=20&c=vX55M2w9McLyALk61ll5Int5UoAbtK7jsMTsEUO5dAQ="
-                         
-                
                 {message: MSG_SUCCESS, status: 200, refer_code: refer_code, user_id: @user.id,img_url: img_url  }
               else
                 {message: INVALID_USER, status: 500}
@@ -484,7 +482,7 @@ module Cricket
               {message: MSG_ERROR, status: 500}
             end
           end
-        end 
+        end
 
 
 
@@ -583,7 +581,6 @@ module Cricket
                   rfAccount.save!
               end
             end
-              
                 if @user.account.present?
                   acnt = @user.account
                 else
@@ -595,8 +592,8 @@ module Cricket
               end
             {message: MSG_SUCCESS, status: 200, id: @user.id, SecurityToken: @user.securityToken }
             rescue Exception => e
-            logger.info "API Exception-#{Time.now}-signup-#{params.inspect}-Error-#{e}"          
-            {message: MSG_ERROR, status: 500}          
+            logger.info "API Exception-#{Time.now}-signup-#{params.inspect}-Error-#{e}"
+            {message: MSG_ERROR, status: 500}
           end
 
         end
@@ -614,14 +611,14 @@ module Cricket
         params do
           # requires :versionName, type: String, allow_blank: false
           # requires :versionCode, type: String, allow_blank: false
-          requires :userId, type: String, allow_blank: false       
-          requires :coin, type: Integer, allow_blank: false       
+          requires :userId, type: String, allow_blank: false
+          requires :coin, type: Integer, allow_blank: false
           # requires :securityToken, type: String, allow_blank: false
         end
-        post do 
+        post do
           begin
             user = User.find params[:userId]
-            if user 
+            if user
               spin=Earn.create(account_id: user.account.id, reward_id: 5, name: "SPIN", coin: params[:coin])
               user.account.coin = user.account.coin.to_i+params[:coin]
               user.account.save!
@@ -745,7 +742,7 @@ module Cricket
 
 
               completed = Match.where(matchStatus: "completed")
-              completedDetails = [] 
+              completedDetails = []
               completed.each do |match| 
                 frontTeam = Team.find_by(teamName: match.frontTeam)
                 oppTeam = Team.find_by(teamName: match.oppTeam)
@@ -753,7 +750,6 @@ module Cricket
                 oppTeamDetails={id: oppTeam.id,name: oppTeam.teamName,code: oppTeam.teamCode, logo: oppTeam.teamLogo.truncate(50)}
                 completedDetails << {match_id: match.id,title: match.title,  views: match.views, frontTeam: frontTeamDetails, oppTeam: oppTeamDetails }
               end
-              
               {message: 'MSG_SUCCESS', status: 200,  liveMatch: liveDetails, completedMatch: completedDetails, upcomingMatch: upcomingDetails, slider: slider}
             else
               {message: 'INVALID_USER', status: 500}
@@ -771,27 +767,27 @@ module Cricket
       #      =============---------PREVIEW--------------==================
       #""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-      resource :preview do 
+      resource :preview do
         desc "Preview-Page-Inside_Home-App-Open"
         params do
           requires :id, type: String, allow_blank: false 
           # requires :versionName, type: String, allow_blank: false
           # requires :versionCode, type: String, allow_blank: false
-          # requires :userId, type: String, allow_blank: false       
-          # requires :securityToken, type: String, allow_blank: false  
+          # requires :userId, type: String, allow_blank: false
+          # requires :securityToken, type: String, allow_blank: false
         end
-        post do 
+        post do
           begin
             user = User.find params[:userId]
             if user
               #Finding match with "id params"
-              match = Match.find(params[:id]) 
+              match = Match.find(params[:id])
 
               #finding Front Team
-              frontTeam = Team.find_by(teamName: match.frontTeam) 
+              frontTeam = Team.find_by(teamName: match.frontTeam)
 
-              #PlayerDetail Array 
-              playerDetails =[] 
+              #PlayerDetail Array
+              playerDetails =[]
 
               #storing each players Details for front Team
               frontTeam.players.each do | player |
@@ -802,14 +798,14 @@ module Cricket
               news = "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)."
 
 
-              frontTeamDetails = [] 
+              frontTeamDetails = []
               frontTeamDetails << {id: frontTeam.id,name: frontTeam.teamName, players: playerDetails, news: news}
 
 
               #finding Opposite Team
               oppTeam = Team.find_by(teamName: match.oppTeam)
 
-              #PlayerDetail Array 
+              #PlayerDetail Array
               playerDetails =[]
               #storing each players Details for OPPOSITE Team
               oppTeam.players.each do | player |
@@ -833,8 +829,6 @@ module Cricket
         end
       end
 
-      
-
 
 
 
@@ -842,15 +836,12 @@ module Cricket
         desc "Ads link are here"
         #before {api_params}
         params do
-        
         end
-        
         post do
           begin
             user = true #valid_user(params['userId'].to_i, params['securityToken'])
             if user
               ads = [ad1: "https://www.tutorialspoint.com/ruby/ruby_hashes.htm", ad2: "https://www.rubyguides.com/ruby-tutorial/loops/", ad2img:"https://zeevector.com/wp-content/uploads/LOGO/Paytm-Cashback-Logo-PNG-Tranparent.png" ]
-                           
               {message: 'MSG_SUCCESS', status: 200, ads: ads}
             else
               {message: 'INVALID_USER', status: 500}
